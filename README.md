@@ -16,3 +16,11 @@ notify:
     api_key: MyAccessKey
     device_id: MyDeviceID
 ```
+
+device_id - Double push the printer's button
+api_key - Ask official support by email memobird@intretech.com
+```
+Memobird Device ID: ***
+Email address: ***
+Description and domain
+```

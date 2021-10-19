@@ -1,9 +1,17 @@
 """
-Memobird platform for notify component.
+Custom component for Home Assistant to enable print messages via Memobird.
 
-For more details about this platform, please refer to the documentation at
-https://home-assistant.io/components/notify.memobird/
+Example configuration.yaml entry:
+
+notify:
+  - name: memobird
+    platform: memobird
+    api_key: ***
+    device_id: ***
+    
+With this custom component loaded, you can print messaged to Memobird.
 """
+
 import logging
 
 import voluptuous as vol
@@ -14,7 +22,7 @@ from homeassistant.components.notify import (
 from homeassistant.const import CONF_API_KEY
 import homeassistant.helpers.config_validation as cv
 
-REQUIREMENTS = ['pymobird==0.1.1']
+REQUIREMENTS = ['pymobird==0.2.1']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -29,7 +37,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 # pylint: disable=unused-argument
 def get_service(hass, config, discovery_info=None):
     """Get the Memobird notification service."""
-    from pymobird import SimplePymobird
+    from custom_components.memobird.pymobird.pymobird import SimplePymobird
 
     memobird = SimplePymobird(config[CONF_API_KEY], config[CONF_DEVICE_ID])
     
@@ -45,7 +53,7 @@ class MemobirdNotificationService(BaseNotificationService):
 
     def send_message(self, message=None, have_title=True, have_datetime=True, **kwargs):
         """Print a message."""
-        from pymobird import Content
+        from custom_components.memobird.pymobird.pymobird import Content
         import datetime
         SEPARATOR = "--------------------------------\n"
         #
@@ -78,4 +86,3 @@ class MemobirdNotificationService(BaseNotificationService):
         #
         printId = self.memobird.print_multi_part_content(c)
         _LOGGER.info("Print sheduled with id: {id}".format(id=printId))
-        

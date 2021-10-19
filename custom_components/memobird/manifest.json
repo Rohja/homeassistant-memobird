@@ -1,0 +1,10 @@
+{
+    "domain": "memobird",
+    "name": "Memobird",
+    "documentation": "https://github.com/mmeruje/homeassistant-memobird",
+    "issue_tracker": "https://github.com/mmeruje/homeassistant-memobird/issues",
+    "dependencies": [],
+    "codeowners": ["@Rohja", "@mmeruje"],
+    "version": "2021.10.1",
+    "requirements": []
+}
