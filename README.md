@@ -1,9 +1,18 @@
 # memobird-homeassistant
 A Home-Assistant component for Memobird
 
-## Installation
+# Installation
 
-Copy `memobird.py` in your `custom_components` directory of your Home Assistant setup (usualy `/home/homeassistant/.homeassistant/custom_components/notify`
+## HACS - Recommended
+- Have [HACS](https://hacs.xyz) installed, this will allow you to easily update.
+- Add `https://github.com/Rohja/homeassistant-memobird` as a [custom repository](https://hacs.xyz/docs/navigation/repository) with Type: Integration
+- Click Install under "memobird-homeassistant" integration.
+- Restart Home-Assistant.
+
+## Manual
+- Copy directory `custom_components/memobird` to your `<config dir>/custom_components` directory.
+- Configure.
+- Restart Home-Assistant.
 
 ## Configuration
 
